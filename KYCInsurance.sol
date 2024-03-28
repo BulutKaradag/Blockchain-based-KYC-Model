@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 contract EventInfoRegistry {
     struct EventInfo {
-		string insuranceCompany;
+	string insuranceCompany;
         string province;
         string city;
         string plate;
@@ -16,7 +16,7 @@ contract EventInfoRegistry {
 
     function register(
         uint256 taxNumber,
-		string memory insuranceCompany,
+	string memory insuranceCompany,
         string memory province,
         string memory city,
         string memory plate,
@@ -24,8 +24,8 @@ contract EventInfoRegistry {
         string memory insuranceBranch
     ) public {
         eventInfoRegistry[taxNumber].push(EventInfo(
-			insuranceCompany,
-			province,
+	    insuranceCompany,
+	    province,
             city,
             plate,
             eventDate,
@@ -39,12 +39,12 @@ contract EventInfoRegistry {
     string[] memory,
     string[] memory,
     string[] memory,
-	string[] memory
+    string[] memory
 ) {
     require(eventInfoRegistry[taxNumber].length > 0, "No data found with the given tax number");
 
     //  tüm bilgileri topla
-	string[] memory insuranceCompanies = new string[](eventInfoRegistry[taxNumber].length);
+    string[] memory insuranceCompanies = new string[](eventInfoRegistry[taxNumber].length);
     string[] memory provinces = new string[](eventInfoRegistry[taxNumber].length);
     string[] memory citys = new string[](eventInfoRegistry[taxNumber].length);
     string[] memory plates = new string[](eventInfoRegistry[taxNumber].length);
